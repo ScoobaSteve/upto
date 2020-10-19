@@ -208,7 +208,7 @@
                         </div>
 
                         <div class="field">
-                            <textarea name="message" id="message" rows="3" placeholder="Dietary Requirements - So we can ensure we don’t have any hungry guests (optional)"></textarea>
+                            <textarea name="message" id="message" rows="3" placeholder="Dietary Requirements (optional)"></textarea>
                         </div>
 
 						<div class="field">
