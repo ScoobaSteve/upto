@@ -34,7 +34,7 @@ class EmailController extends Controller
         //dd($email, $name, $name2, $phone, $message, $message2);
 
         return redirect('/#footer')
-            //->with('message', 'Email Sent! nice.');
+            ->with('message', 'Email Sent! nice.');
 
         //$email = request('email');
 
