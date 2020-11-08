@@ -1,12 +1,14 @@
-<p>Hi, This is {{ $data['name'] }}</p>
+<h3>Someone has RSVP'd from thew website!</h3>
 
-<p>Hi, This is {{ $data['email'] }}</p>
+<p>Name :  {{ $data['name'] }}</p>
 
-<p>Hi, This is {{ $data['name2'] }}</p>
+<p>My contact email is :  {{ $data['email'] }}</p>
 
-<p>Hi, This is {{ $data['phone'] }}</p>
+<p>Other people on this rsvp are :  {{ $data['name2'] }}</p>
 
-<p>Hi, This is {{ $data['message'] }}</p>
+<p>My contact number is :  {{ $data['phone'] }}</p>
 
-<p>Hi, This is {{ $data['message2'] }}</p>
+<p>Any Dietry requirements? :  {{ $data['message'] }}</p>
+
+<p>Personalised message to the Bride and Groom :  {{ $data['message2'] }}</p>
 
