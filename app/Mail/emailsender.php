@@ -29,8 +29,6 @@ class emailsender extends Mailable
      */
     public function build()
     {
-        //return $this->markdown('email.welcome');
-
         return $this->from('jansonandemma2@gmail.com')->subject('RSVP to wedding')->view('layoutemail')->with('data', $this->data);
     }
 }
