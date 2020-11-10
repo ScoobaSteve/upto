@@ -38,16 +38,31 @@
 		-->
 			<section id="banner" class="bg-img" data-bg="banner.jpg">
 				<div class="inner">
+				@if (session('message'))
+
+                    <div>
+                        {{ session('message') }}
+
+                    </div>
+
+                @endif
+
 					<header>
 						<h1>JANSON & EMMA</h1>
-						<h1 STYLE="font-size:2.5em">ARE GETTING MARRIED</h1>
+						<h1 STYLE="font-size:2.5em">ARE GETTING MARRIED</h1></br>
+						@error('name')
+                            <div class="text-orange-500 tex-xs">Your email was not sent :( - <a href="#footer">{{ $message }}</a></div>
+                        @enderror
+                        @error('email')
+                            <div class="text-orange-500 tex-xs">Your email was not sent :( - <a href="#footer">{{ $message }}</a></div>
+                        @enderror
 					</header>
 				</div>
 				<a href="#one" class="more">Learn More</a>
 			</section>
 
 		<!-- One -->
-			<section id="one" class="wrapper post bg-img" data-bg="banner2.jpg">
+			<section id="one" class="wrapper post bg-img" data-bg="banner5.jpg">
 				<div class="inner">
 					<article class="box">
 						<header>
@@ -57,7 +72,7 @@
 							<p>We can’t wait to celebrate our special day with you. We’ve
                                created this website as a convenient way to share all of the important details with you in the lead up
                                to our wedding. You can read more about the details of the day, our love story, accommodation, and
-                               don’t forget to RSVP!</p>
+                               don’t forget to <a href="#footer">RSVP</a> below by December 1st</p>
 						</div>
 
 					</article>
@@ -74,16 +89,13 @@
             							<p>23 - 01 - 2021</p>
             						</header>
             						<div class="content">
-            							<p>Guests by invitation only</p>
-
-
-
+            							<p><strong>Guests by invitation only.</strong></p>
                                         <p>Arrive from 2.30pm for a 3pm start. The ceremony will take place in the gardens of Wharerata,
                                            followed by dinner and dancing in the villa.</p>
-                                           <p>The very best present we could receive is your presence at our wedding. If however, you
+                                        <p>The very best present we could receive is your presence at our wedding. If however, you
                                            wish to help us celebrate with a gift, we will have a wishing well at the reception and a
                                            contribution towards our honeymoon would be greatly appreciated.</p>
-                                           <p>Drinks will be subisdised to a certain point, then a cash bar will be available.
+                                        <p>Drinks will be subisdised to a certain point, then a cash bar will be available.
                                            Please make use of the photobooth, and pop a photo strip in the guest book!
                                            Please don’t take photos during the ceremony as we have a wonderful photographer and
                                            videographer to capture everything. We ask that if you take other photos during the day that you
@@ -96,11 +108,11 @@
             						</footer>
             					</article>
             				</div>
-            				<a href="#three" class="more">Learn More</a>
+            				<a href="#four" class="more">Learn More</a>
             			</section>
 
 
-		<!-- Three -->
+		<!-- Three
 			<section id="three" class="wrapper post bg-img" data-bg="banner5.jpg">
 				<div class="inner">
 					<article class="box">
@@ -122,12 +134,23 @@
 					</article>
 				</div>
 				<a href="#four" class="more">Learn More</a>
-			</section>
+			</section>-->
 
 		<!-- Four -->
 			<section id="four" class="wrapper post bg-img" data-bg="banner4.jpg">
 				<div class="inner">
 					<article class="box">
+					    <header>
+                            <h2>Accommodation</h2>
+                        </header>
+                        <div class="content">
+                            <p>For our out of town guests, Fitzherbert Avenue is about a 5 minute drive to the venue</br> and has many
+                               places to stay. A few examples:</p>
+                               <p><a href="https://www.distinctionhotels.co.nz/palmerston-north-hotel">Distinction Coachman Hotel</a>,
+                               <a href="https://fitzherbertregency.co.nz/">Fitzherbert Regency Motor Lodge</a>,
+                               <a href="https://www.questapartments.co.nz/properties/north-island/palmerston-north/quest-palmerston-north-central/overview">Quest Apartments</a>
+                            </p>
+                        </div>
 						<header>
 							<h2>Next day gathering</h2>
 							<p>24 - 01 - 2021</p>
@@ -141,27 +164,6 @@
 						</footer>
 					</article>
 				</div>
-				<a href="#five" class="more">Learn More</a>
-			</section>
-
-		<!-- Five -->
-			<section id="five" class="wrapper post bg-img" data-bg="banner3.jpg">
-				<div class="inner">
-					<article class="box">
-						<header>
-							<h2>Accommodation</h2>
-						</header>
-						<div class="content">
-							<p>For our out of town guests, Fitzherbert Avenue is about a 5 minute drive to the venue</br> and has many
-                               places to stay. A few examples:</p>
-                               <p><a href="https://www.distinctionhotels.co.nz/palmerston-north-hotel">Distinction Coachman Hotel</a></br>
-                               <a href="https://fitzherbertregency.co.nz/">Fitzherbert Regency Motor Lodge</a></br>
-                               <a href="https://www.questapartments.co.nz/properties/north-island/palmerston-north/quest-palmerston-north-central/overview">Quest Apartments</a>
-                            </p>
-						</div>
-
-					</article>
-				</div>
 				<a href="#footer" class="more">Learn More</a>
 			</section>
 
@@ -169,7 +171,8 @@
 			<footer id="footer">
 				<div class="inner">
 
-					<h2>rsvp</h2>
+					<h2 style="margin-bottom: 0.25em">rsvp</h2>
+					<h5 style="text-align: center; margin-bottom: 5em">(By Dec 1st please)</h5>
 
 					@if (session('message'))
 
@@ -198,11 +201,11 @@
 						    @error('email')
                                 <div class="text-orange-500 tex-xs">{{ $message }}</div>
                             @enderror
-							<input name="email" id="email" type="text" placeholder="Email Address">
+							<input name="email" id="email" type="text" placeholder="Email Address (Optional)">
 						</div>
 
 						<div class="field half first">
-                            <input name="name2" id="name2" type="text" placeholder="Others included in this reply (Optional)">
+                            <input name="name2" id="name2" type="text" placeholder="RSVP'ing for anyone else? Name them here (Optional)">
                         </div>
 
                         <div class="field half">
@@ -210,11 +213,11 @@
                         </div>
 
                         <div class="field">
-                            <textarea name="message" id="message" rows="3" placeholder="Dietary Requirements (optional)"></textarea>
+                            <textarea name="message" id="message" rows="3" placeholder="Dietary Requirements (Optional)"></textarea>
                         </div>
 
 						<div class="field">
-							<textarea name="message2" id="message2" rows="8" placeholder="Message to the Bride and Groom (optional)"></textarea>
+							<textarea name="message2" id="message2" rows="8" placeholder="Message to the Bride and Groom (Optional)"></textarea>
 						</div>
 
 						<ul class="actions">
